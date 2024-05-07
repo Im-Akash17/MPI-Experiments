@@ -1,3 +1,6 @@
+
+//MPI – NON-BLOCKING OPERATION 
+
 #include <mpi.h>
 #include <stdio.h>
 
