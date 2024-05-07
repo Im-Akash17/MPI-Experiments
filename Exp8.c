@@ -1,3 +1,5 @@
+//MPI – COLLECTIVE OPERATION WITH "DATA MOVEMENT" 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
