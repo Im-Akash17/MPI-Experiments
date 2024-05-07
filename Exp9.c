@@ -1,3 +1,5 @@
+MPI – COLLECTIVE OPERATION WITH "COLLECTIVE COMPUTATION" 
+
 #include <stdio.h>
 #include <mpi.h>
 
