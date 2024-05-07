@@ -1,41 +1,38 @@
 #include <stdio.h>
 #include <omp.h>
-#define ARRAY_SIZE 1000
-int main()
-{
- int i, sum = 0;
- int array[ARRAY_SIZE];
- // Initialize array
- for (i = 0; i < ARRAY_SIZE; i++)
- {
- array[i] = i;
- }
-// Combined parallel loop reduction
-#pragma omp parallel for reduction(+ : sum) num_threads(4)
- for (i = 0; i < ARRAY_SIZE; i++)
- {
- sum += array[i];
- }
- printf("Sum using combined parallel loop reduction: %d\n", sum);
- sum = 0; // Reset sum
- // Orphaned parallel loop reduction
- sum = 0; // Reset sum
-#pragma omp parallel num_threads(4)
- {
- int local_sum = 0;
-// Each thread works on a portion of the array
-#pragma omp for
- for (i = 0; i < ARRAY_SIZE; i++)
- {
- local_sum += array[i];
- }
-// Combine local sums
-#pragma omp critical
- {
- sum += local_sum;
- }
- }
 
-  printf("Sum using orphaned parallel loop reduction: %d\n", sum);
- return 0;
+#define ARRAY_SIZE 1000
+
+int main() {
+    int i;
+    double sum = 0.0;
+    double array[ARRAY_SIZE];
+
+    // Initialize the array with some values
+    for (i = 0; i < ARRAY_SIZE; ++i) {
+        array[i] = i + 1.0;
+    }
+
+    // Combined parallel loop reduction and orphaned parallel loop execution
+    #pragma omp parallel for reduction(+:sum)
+    for (i = 0; i < ARRAY_SIZE; ++i) {
+        sum += array[i];
+        
+        // Orphaned parallel loop execution
+        #pragma omp parallel
+        {
+            // Additional computation on each array element
+            array[i] = array[i] * 2;
+        }
+    }
+
+    // Output the sum and modified array elements
+    printf("Sum: %f\n", sum);
+    printf("Modified Array: [");
+    for (i = 0; i < ARRAY_SIZE - 1; ++i) {
+        printf("%f, ", array[i]);
+    }
+    printf("%f]\n", array[ARRAY_SIZE - 1]);
+
+    return 0;
 }
