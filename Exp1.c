@@ -1,3 +1,5 @@
+//OPENMP – BASIC PROGRAMS SUCH AS 1. VECTOR ADDITION, 2. DOT PRODUCT 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
