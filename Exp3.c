@@ -1,3 +1,5 @@
+//OPENMP – 1. COMBINED PARALLEL LOOP REDUCTION AND 2. ORPHANED PARALLEL LOOP REDUCTION 
+
 #include <stdio.h>
 #include <omp.h>
 
