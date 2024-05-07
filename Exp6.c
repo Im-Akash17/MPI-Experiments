@@ -1,3 +1,5 @@
+//MPI – COMMUNICATION BETWEEN MPI PROCESS 
+
 #include <mpi.h>
 #include <stdio.h>
 
