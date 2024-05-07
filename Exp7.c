@@ -1,3 +1,6 @@
+
+//MPI – COLLECTIVE OPERATION WITH "SYNCHRONIZATION" 
+
 #include <mpi.h>
 #include <stdio.h>
 #include <unistd.h>
