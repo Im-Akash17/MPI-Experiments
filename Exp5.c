@@ -1,3 +1,4 @@
+//MPI – BASICS OF MPI 
 #include <stdio.h>
 #include <mpi.h>
 
