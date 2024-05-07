@@ -1,3 +1,4 @@
+//OPENMP – 1. LOOP WORK-SHARING AND 2. SECTIONS WORK-SHARING 
 #include <stdio.h>
 #include <omp.h>
 
